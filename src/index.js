@@ -15,11 +15,11 @@ const INCREMENT = 'INCREMENT';
 const DECREMENT = 'DECREMENT';
 
 //action creator
-const incrementValue = () => ({
+const increment = () => ({
   type: INCREMENT,
 });
 
-const decrementValue = () => ({
+const decrement = () => ({
   type: DECREMENT,
 });
 
@@ -63,13 +63,11 @@ class Counter extends Component {
 const mapStateToProps = (state) => { return state;};
 
 // takes the dispatch argument pointing to store.dispatch
-const mapDispatchToProps = (dispatch) => {
-  return {
-    increment() { dispatch(incrementValue()) },
-    decrement() { dispatch(decrementValue())}
-  };
+// refactored for cleaner redux implementation
+const mapDispatchToProps = {
+  increment,
+  decrement,
 };
-
 const CounterContainer = connect(mapStateToProps, mapDispatchToProps)(Counter);
 
 render(
